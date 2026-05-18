@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codelab Preview</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.1/github-markdown-light.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.0/marked.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <style>
+    body {
+      background: #f6f8fa;
+      margin: 0;
+      padding: 24px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+    }
+    .header-bar {
+      background: linear-gradient(135deg, #4285F4 0%, #6366f1 100%);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 8px 8px 0 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-bar h1 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .header-bar .meta {
+      font-size: 13px;
+      opacity: 0.9;
+    }
+    .markdown-body {
+      background: white;
+      border: 1px solid #d0d7de;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      padding: 48px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+    }
+    @media (max-width: 767px) {
+      .markdown-body { padding: 20px; }
+      body { padding: 12px; }
+    }
+    .frontmatter {
+      background: #f6f8fa;
+      border-left: 4px solid #6e7681;
+      padding: 12px 16px;
+      margin-bottom: 32px;
+      font-family: ui-monospace, SFMono-Regular, monospace;
+      font-size: 13px;
+      color: #57606a;
+      border-radius: 4px;
+    }
+    .frontmatter strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #1f2328;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+    /* Aside styling — match codelab.dev visual feel */
+    .markdown-body blockquote.aside-positive {
+      background: #ddf4ff;
+      border-left: 4px solid #0969da;
+      color: #0a3069;
+      padding: 12px 16px;
+      margin: 16px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .markdown-body blockquote.aside-negative {
+      background: #fff8c5;
+      border-left: 4px solid #d4a72c;
+      color: #54470a;
+      padding: 12px 16px;
+      margin: 16px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .markdown-body blockquote.aside-positive::before,
+    .markdown-body blockquote.aside-negative::before {
+      display: block;
+      font-weight: 600;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .markdown-body blockquote.aside-positive::before { content: "💡 Tip"; }
+    .markdown-body blockquote.aside-negative::before { content: "⚠️  Watch out"; }
+    /* Section dividers visually */
+    .markdown-body h2 {
+      margin-top: 48px;
+      padding-top: 16px;
+      border-top: 2px solid #eaeef2;
+    }
+    .markdown-body h2:first-child {
+      margin-top: 0;
+      border-top: none;
+      padding-top: 0;
+    }
+    /* Duration badge */
+    .markdown-body p:has(strong:first-child:contains("Duration:")) {
+      display: inline-block;
+      background: #4285F4;
+      color: white;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    /* Loading state */
+    #loading {
+      text-align: center;
+      padding: 60px;
+      color: #6e7681;
+    }
+    /* TOC sidebar */
+    .toc {
+      position: fixed;
+      top: 24px;
+      right: 24px;
+      width: 240px;
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+      background: white;
+      border: 1px solid #d0d7de;
+      border-radius: 8px;
+      padding: 16px;
+      font-size: 13px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    }
+    .toc h3 {
+      margin: 0 0 12px 0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: #6e7681;
+    }
+    .toc ul { list-style: none; padding-left: 0; margin: 0; }
+    .toc li { margin: 6px 0; }
+    .toc a {
+      color: #1f2328;
+      text-decoration: none;
+      display: block;
+      padding: 4px 8px;
+      border-radius: 4px;
+    }
+    .toc a:hover { background: #f6f8fa; color: #0969da; }
+    @media (max-width: 1280px) { .toc { display: none; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header-bar">
+      <h1 id="title-display">Codelab Preview</h1>
+      <span class="meta" id="meta-display">Loading…</span>
+    </div>
+    <div class="markdown-body">
+      <div id="loading">Loading codelab.md…</div>
+      <div id="content" style="display:none;"></div>
+    </div>
+  </div>
+  <nav class="toc" id="toc" style="display:none;">
+    <h3>Contents</h3>
+    <ul id="toc-list"></ul>
+  </nav>
+
+  <script>
+    fetch('codelab.md')
+      .then(r => {
+        if (!r.ok) throw new Error('Could not fetch codelab.md');
+        return r.text();
+      })
+      .then(md => {
+        // Extract YAML frontmatter
+        const fmMatch = md.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
+        let body = md;
+        let frontmatter = {};
+        let frontmatterRaw = '';
+        if (fmMatch) {
+          frontmatterRaw = fmMatch[1];
+          body = fmMatch[2];
+          frontmatterRaw.split('\n').forEach(line => {
+            const m = line.match(/^([^:]+):\s*(.+)$/);
+            if (m) frontmatter[m[1].trim()] = m[2].trim();
+          });
+        }
+
+        // Preprocess asides
+        body = body.replace(/> aside positive\n((?:>[^\n]*\n?)+)/g, (m, content) => {
+          const inner = content.replace(/^> ?/gm, '').trim();
+          return `<blockquote class="aside-positive">\n\n${inner}\n\n</blockquote>\n`;
+        });
+        body = body.replace(/> aside negative\n((?:>[^\n]*\n?)+)/g, (m, content) => {
+          const inner = content.replace(/^> ?/gm, '').trim();
+          return `<blockquote class="aside-negative">\n\n${inner}\n\n</blockquote>\n`;
+        });
+
+        // Configure marked with syntax highlighting
+        marked.setOptions({
+          highlight: function(code, lang) {
+            if (lang && hljs.getLanguage(lang)) {
+              return hljs.highlight(code, { language: lang }).value;
+            }
+            return hljs.highlightAuto(code).value;
+          },
+          breaks: false,
+          gfm: true
+        });
+
+        const html = marked.parse(body);
+
+        // Render
+        let final = '';
+        if (Object.keys(frontmatter).length) {
+          final += '<div class="frontmatter"><strong>Codelab Metadata</strong>';
+          for (const [k, v] of Object.entries(frontmatter)) {
+            final += `${k}: ${v}<br>`;
+          }
+          final += '</div>';
+        }
+        final += html;
+
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('content').style.display = 'block';
+        document.getElementById('content').innerHTML = final;
+
+        // Update title bar
+        if (frontmatter.title) {
+          document.title = frontmatter.title;
+          document.getElementById('title-display').textContent = frontmatter.title;
+        }
+        if (frontmatter.duration) {
+          document.getElementById('meta-display').textContent = `${frontmatter.duration} min · ${frontmatter.authors || ''}`;
+        }
+
+        // Build TOC from h2 headings
+        const headings = document.querySelectorAll('#content h2');
+        if (headings.length > 3) {
+          const tocList = document.getElementById('toc-list');
+          headings.forEach((h, i) => {
+            const id = 'section-' + i;
+            h.id = id;
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = '#' + id;
+            a.textContent = h.textContent.replace(/^\d+\.\s*/, '').slice(0, 40);
+            li.appendChild(a);
+            tocList.appendChild(li);
+          });
+          document.getElementById('toc').style.display = 'block';
+        }
+
+        // Highlight code blocks
+        document.querySelectorAll('pre code').forEach(block => {
+          hljs.highlightElement(block);
+        });
+      })
+      .catch(err => {
+        document.getElementById('loading').innerHTML =
+          `<p style="color:#cf222e;">Error: ${err.message}</p>
+           <p>Make sure codelab.md exists in the same folder.</p>`;
+      });
+  </script>
+</body>
+</html>
