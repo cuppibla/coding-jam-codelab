@@ -17,6 +17,25 @@ duration: 75
 # 🪐 Build & Ship an AI App with Antigravity
 
 
+### 🗺️ Workshop Map
+
+| # | Section | Time |
+|---|---------|------|
+| 1 | Introduction & Set Up | 3 min |
+| 2 | Install Required Tools | 5 min |
+| 3 | Clone Your Project | 3 min |
+| 4 | Install Workshop Skills | 3 min |
+| 5 | The Spec Talk | 5 min |
+| 6 | Generate 3 Design Docs | 4 min |
+| 7 | Review & Iterate | 4 min |
+| 8 | Implement + Test | 10 min |
+| 9 | Google Cloud + API Key Setup | 2 min |
+| 10 | Preview & Verify | 8 min |
+
+> aside positive
+> **Pacing tip:** Times are guidelines, not deadlines. Sections 8 and 10 are the ones where things can stretch — leave yourself room there.
+
+
 ---
 
 
@@ -198,7 +217,7 @@ When the agent is done, you'll see something like:
 **Duration: 3 min**
 
 
-### 1 — Pick This Week's Project
+### Step 1 — Pick This Week's Project
 
 
 Coding Jam is an **8-week program** with a different mini-project each week. **Your facilitator will tell you which week we're doing today.** Find that row and copy the URL.
@@ -206,21 +225,21 @@ Coding Jam is an **8-week program** with a different mini-project each week. **Y
 
 | Week | Project | Repo URL |
 |------|---------|----------|
-| 1 | AI Hairstyle Try-On | `https://github.com/cuppibla/codingjam-glow-up` |
-| 2 | AI Avatar Generator | `https://github.com/cuppibla/codingjam-avatar-studio` |
-| 3 | My Special Year Calendar | `https://github.com/cuppibla/codingjam-year-in-poetry` |
-| 4 | Fridge to Recipe | `https://github.com/cuppibla/codingjam-fridge-chef` |
-| 5 | AI Mood Jar | `https://github.com/cuppibla/codingjam-moodjar` |
-| 6 | One-Page Portfolio | `https://github.com/cuppibla/codingjam-my-corner` |
-| 7 | Resume Tailor | `https://github.com/cuppibla/codingjam-bulletproof` |
-| 8 | AI Character Chat | `https://github.com/cuppibla/codingjam-character-chat` |
+| 1 | AI Hairstyle Try-On | `https://github.com/gca-americas/codingjam-glow-up` |
+| 2 | AI Avatar Generator | `https://github.com/gca-americas/codingjam-avatar-studio` |
+| 3 | My Special Year Calendar | `https://github.com/gca-americas/codingjam-year-in-poetry` |
+| 4 | Fridge to Recipe | `https://github.com/gca-americas/codingjam-fridge-chef` |
+| 5 | AI Mood Jar | `https://github.com/gca-americas/codingjam-moodjar` |
+| 6 | One-Page Portfolio | `https://github.com/gca-americas/codingjam-my-corner` |
+| 7 | Resume Tailor | `https://github.com/gca-americas/codingjam-bulletproof` |
+| 8 | AI Character Chat | `https://github.com/gca-americas/codingjam-character-chat` |
 
 
 > aside positive
 > **Drop-in this week? No problem.** Pick today's row. The codelab works exactly the same for any week.
 
 
-### 2 — Return to the Welcome Screen
+### Step 2 — Clone via Antigravity
 
 
 We need to get back to the launch screen to use the "Clone Repository" button.
@@ -244,11 +263,11 @@ Example of clone week 1, but you need to input the **correct repo**
 
 📝 Reference Prompt
 ```
-Git clone ⚠️ PASTE_YOUR_PROJECT and save to my local folder: ⚠️ PASTE_YOUR_PROJECT
+Git clone ⚠️ PASTE_YOUR_PROJECT and save to my local folder: ⚠️ PASTE_YOUR_LOCATION
 ```
 
 
-### 3 — Tour the Project
+### Step 3 — Tour the Project
 
 
 Look at the file list. You should see:
@@ -283,7 +302,7 @@ A **"skill"** is a set of instructions stored on GitHub that you can hand to you
 Please install the workshop skills into this workspace's .agent/skills/ 
 folder. Run these two git clones from the project root:
 
-1. git clone https://github.com/cuppibla/skills-garden .agent/skills/skills-garden
+1. git clone https://github.com/gca-americas/skills-garden .agent/skills/skills-garden
 2. git clone https://github.com/google-gemini/gemini-skills .agent/skills/gemini-skills
 
 When Antigravity asks permission to run each command, I'll click Allow.
@@ -301,7 +320,7 @@ When done, list the skills that are now available in this workspace.
 ```
 I'll create the .agent/skills/ folder and clone both repos into it.
 
-Running: git clone https://github.com/cuppibla/skills-garden .agent/skills/skills-garden
+Running: git clone https://github.com/gca-americas/skills-garden .agent/skills/skills-garden
 ```
 
 Allow any actions if agent prompts.
@@ -411,7 +430,7 @@ Now AI writes **three plans, on paper**, before any code happens. We do all thre
 | **engineering.md** | Tech stack, file structure, **+ Testing strategy section** | `eng-design-doc` |
 
 
-### Step 1 - Generate All Three Docs at Once
+### Step 1 — Generate All Three Docs at Once
 
 🤖 **Switch to Gemini 3.1 Pro With Low Thinking (Recommended)**
 
@@ -463,7 +482,7 @@ codingjam-week-1/
 ---
 
 
-### Step 3 - Review & Iterate
+## Review & Iterate
 **Duration: 4 min**
 
 
@@ -727,7 +746,7 @@ Code is built. Tests pass. API key configured. **Now** open the app and click ar
 | Logic bugs | The vibe is off |
 
 
-### Step 1. Ask Antigravity to Start the Dev Server
+### Step 1 — Ask Antigravity to Start the Dev Server
 
 
 🎯 **MODEL: Default (Flash) is fine.**
@@ -777,7 +796,7 @@ Use it like a real user would:
 - Try the main flow from start to finish
 
 
-**If everything looks and feels right, jump to Step 9.7 (write README).** Steps 9.4-9.6 are only needed if you find issues.
+**If everything looks and feels right, jump to *Step 4 — Write a README* below.** Otherwise, click around first and report any issues to Antigravity before writing the README.
 
 
 
@@ -873,8 +892,8 @@ You went from idea → working app, **without writing a single line of code your
 - [Antigravity Skills Docs](https://antigravity.google/docs/skills)
 - [Antigravity Conversation View](https://antigravity.google/docs/conversation-view)
 - [Official Gemini Skills (Google)](https://github.com/google-gemini/gemini-skills)
-- [Coding Jam Starter (all 8 weeks)](https://github.com/cuppibla/coding-jam-starter)
-- [Skills Garden (the skills we used)](https://github.com/cuppibla/skills-garden)
+- [Coding Jam (all 8 weekly projects)](https://github.com/gca-americas/coding-jam)
+- [Skills Garden (the skills we used)](https://github.com/gca-americas/skills-garden)
 - [Gemini API Documentation](https://ai.google.dev/docs)
 - [FastAPI Documentation](https://fastapi.tiangolo.com)
 
