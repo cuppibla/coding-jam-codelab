@@ -382,6 +382,8 @@ questions to refine it:
 
 DO NOT generate any plans, docs, or code yet. Just ask me the questions 
 and wait for my answers.
+
+⛔ DO NOT NEED TO WRITE implementation plan.
 ```
 
 🤖 **Talk to AI and refine your plan**
@@ -460,6 +462,8 @@ briefly confirm what you saved before moving to the next.
 
 When all three are done, give me a final summary listing the section 
 titles in each file.
+
+⛔ DO NOT NEED TO WRITE implementation plan.
 ```
 
 ### Step 2 — Verify the Files Saved
@@ -495,20 +499,31 @@ You're the boss. AI wrote the plan. Now you read it and request changes.
 When you want a change, **change the DOC — not the code.** The doc is the source of truth.
 
 
-🤖  **Read & Review All Three Docs**
+### Step 1 — Preview Each Doc
 
 
-👉 Open each one (click in the file list), top to bottom:
+👉 In the file list (left panel), **click the file name** (`product.md`, then `ui.md`, then `engineering.md`).
+
+
+The doc previews in the panel on the right.
+
+
+### Step 2 — Read & Comment, Google Docs Style
+
+
+👉 With each doc previewed, read top to bottom and ask:
 
 
 1. **`product.md`** — Does this describe what I want?
 2. **`ui.md`** — Are the screens and look right?
 3. **`engineering.md`** — Does the Testing strategy make sense? (You don't need to understand the tech — just check there IS a plan.)
 
-> aside positive
-> Review and iterate on each doc, comment Directly on the Docs (Like **Google Docs**). Antigravity lets you leave **inline comments** on any file — just like Google Docs. The agent reads your comments and applies the changes.
 
-🤖  **Now the docs are ready, move on to the next steps**.
+> aside positive
+> **Comment directly on the docs — like Google Docs.** Antigravity lets you leave **inline comments** on any file. The agent reads your comments and applies the changes — no need to copy-paste feedback into the chat.
+
+
+🤖 Once the agent has applied your comments and the docs read right, **move on to the next section**.
 
 ---
 
